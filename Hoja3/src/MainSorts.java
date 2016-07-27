@@ -5,7 +5,7 @@ import java.io.IOException;
 @author Carlos Calderon, 15219
 @author Jorge Azmitia,15202
 @author Jennifer Barillas,15307
-@version 1.0 Julio 27, 2016 
+@version 1.1 Julio 27, 2016 
 */
 public class MainSorts {
 	  
@@ -14,6 +14,7 @@ public class MainSorts {
 		 */
 	 public static void main(String[] args) { 
 		 
-		  
-	 }
+		  Azar az = new Azar();
+		  az.escribirContenido();
+	 } 
 }
