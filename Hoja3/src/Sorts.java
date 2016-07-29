@@ -12,13 +12,13 @@ public class Sorts {
 
 	public static void GNOMESORT (Comparable[] lista){
 		int index=0;
-		int tempVal=0;
+		Comparable tempVal=0;
 		for ( index=1; index<lista.length;){
 			if (lista[index-1].compareTo(lista[index])<0){
 				index++;
 			} 
 			else{
-				tempVal=  (int) lista[index];
+				tempVal=  lista[index];
 				lista[index] =lista[index-1];
 				lista[index-1]= tempVal;
 				--index;

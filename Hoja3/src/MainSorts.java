@@ -16,11 +16,12 @@ public class MainSorts {
 		 
 		  //Azar az = new Azar();
 		  //az.escribirContenido();
-		 //Sorts q = new Sorts();
-		 //Integer[] ia = {30, 20, 10, 5, 6, 99};
-		 //q.qsort(ia, 0, ia.length-1);
-	       // for(Integer i: ia) {
-	          //  System.out.println(i);
-	        //}
+		// Sorts q = new Sorts();
+		// Integer[] ia = {30,1000,0, 20, 10, 5, 6, 99};
+		// q.qsort(ia, 0, ia.length-1);
+		// q.GNOMESORT(ia);
+	     //   for(Integer i: ia) {
+	     //       System.out.println(i);
+	     //   }
 	 } 
 }
