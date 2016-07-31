@@ -2,10 +2,10 @@ import java.io.*;
 import javax.swing.JOptionPane;
 /**
  *Esta clase se encarga de generar los numeros aleatorios. Asimismo los guarda en un archivo.
-@author Carlos Calderon, 15219
-@author Jorge Azmitia,15202
-@author Jennifer Barillas,15307
-@version 1.2 Julio 28, 2016 
+ * @author Carlos Calderon, 15219
+ * @author Jorge Azmitia,15202
+ * @author Jennifer Barillas,15307
+ * @version 1.3 Julio 30, 2016 
  */
 public class Azar {
 	/* Atributos */
@@ -17,20 +17,7 @@ public class Azar {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	String leerContenido(String archivo) {
-		String texto="",temp="",bfRead; 
-		try{
-			BufferedReader ar = new BufferedReader (new FileReader(archivo));
-			while ((bfRead = ar.readLine()) != null){
-				temp+=bfRead;
-			}
-			texto=temp;
-		}
-		catch(Exception e){
-			JOptionPane.showMessageDialog(null, "No se encontro archivo");
-		}
-		return texto;
-	}
+	
 	void escribirContenido(){
 		try
 		{
@@ -38,7 +25,7 @@ public class Azar {
 			pw = new PrintWriter(fichero);
 
 			for (int i = 0; i < 10; i++)
-				pw.print(generarNumeros()+",");
+				pw.println(generarNumeros()+" ");
 
 		} catch (Exception e) {
 			e.printStackTrace();
