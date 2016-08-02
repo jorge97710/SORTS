@@ -9,73 +9,81 @@ import java.util.Stack;
 import javax.swing.JOptionPane;
 
 /**
-*Esta clase se encarga de ejecutar el programa.
+ *Esta clase se encarga de ejecutar el programa.
 @author Carlos Calderon, 15219
 @author Jorge Azmitia,15202
 @author Jennifer Barillas,15307
-@version 1.3 Julio 30, 2016 
-*/
+@version 2.0 Julio 30, 2016 
+ */
 public class MainSorts {
-	  
+
+		 private static int n=0,opc=0;
+		 private static String dir;
+		 private static Integer [] lista;
 	/**
 		 * Ejecuta el programa.
 		 */
-	
-	
-	static String textoarray="",txt="";
-    static Stack<String> miStack = new Stack<String>();
-static ArrayList<String> array = new ArrayList<String>();
+		 public static void menu () {
+			 // Instanciar la clase azar para generar los numeros
+			 Azar az = new Azar();
+			 System.out.println("Bienvenido al programa, ingrese la direccion donde esta el archivo");
+			 // Instaciar la clase Sorts para hacer las pruebas
+			 Sorts q = new Sorts();
+			 //Instanciar clase Scanner para leer ingresos
+			 Scanner sc = new Scanner(System.in);
+			 dir= sc.next();
+			 System.out.println("Ingrese la cantidad de numeros que quiere ordenar");
+			 n= sc.nextInt();
+			 az.escribirContenido(n,dir);
+			 Azar.leerContenido(dir);  
+			 lista = new Integer[Azar.array.size()];
+			 for (int i=0;i<Azar.array.size();i++)
+			 {
+				 lista[i]=Integer.parseInt(Azar.array.get(i).trim());
+			 }
+			 System.out.println("Seleccione el algoritmo preferido");
+			 
+			 while(opc!=5){
+				 System.out.println("1.Gnome , 2. Merge , 3. Quick, 4. Radix, 5. Salir"); 
+				 opc=sc.nextInt();
+				 switch(opc) {
+				 case 1: 
+					 Sorts.gnomeSort(lista);
+					 for(Integer i: lista) {
+						 System.out.println(i);
+					 }
+					 break;
+				 case 2: 
+					 Sorts.mergeSort(lista);
+					 for(Integer i: lista) {
+						 System.out.println(i);
+					 }
+					 break;
+				 case 3: 
+					 Sorts.qSort(lista, 0, lista.length-1);
+					 for(Integer i: lista) {
+						 System.out.println(i);
+					 }
+					 break;
+				 case 4: 
+					 Sorts.radixSort(lista);
+					 for(Integer i: lista) {
+						 System.out.println(i);
+					 }
+					 
+					 break;
+				 case 5:
+					 System.out.println("Gracias por usar el programa");
+					 break;
+				 default: 
+					 System.out.println("Escoga un no valido");
+					 break;
+				 }
+			 }
+		 }
 
-
-	
-	static String leerContenido(String archivo) {
-		String texto="",temp="",bfRead; 
-		try{
-			BufferedReader ar = new BufferedReader (new FileReader(archivo));
-			while ((bfRead = ar.readLine()) != null){
-				temp+=bfRead;
-			}
-			texto=temp;
-array.add(texto);
-}
-		catch(Exception e){
-			JOptionPane.showMessageDialog(null, "No se encontro archivo");
-		}
-		return texto;
-	}
-	
-	 public static void main(String[] args) { 
-		 Azar az = new Azar();
-		 az.escribirContenido(); 
-		 
-		 
-		 System.out.println("Bienvenido al programa, ingrese la direccion donde esta el archivo");
-	     Scanner sc = new Scanner(System.in);
-	     String dir= sc.next();
-	     leerContenido(dir);  
-		 Sorts q = new Sorts();
-	     Integer [] lista = new Integer[array.size()];
-	     
-	     for (int i=0;0<=array.size();i++)
-	     {
-	    	 lista[i]=Integer.parseInt(array.get(i));
-	    	 
-	     }
-	     
-
-		// -------------------------------Integer[] ia = {30,1000,0, 20, 10, 5, 6, 99};
-	     //quickSORT
-		// Sorts.qsort(lista, 0, lista.length-1);
-	     //GNOMESORT
-		// Sorts.GNOMESORT(lista);
-	    // Sorts.mergeSort(lista);
-	     //   for(Integer i: ia) {
-	     //       System.out.println(i);
-	     //   }
-		 
-		 // Merge
-/*			Integer[] a = {30,1000,0, 20, 10, 5, 6, 99};
-			q.GNOMESORT(a);
-			System.out.println(Arrays.toString(a));*/
-	 } 
+	public static void main(String[] args) { 
+		
+		menu();
+	} 
 }
